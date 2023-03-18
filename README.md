@@ -1,7 +1,7 @@
 # Instructions on how to use the Finnhub-API-Connector
 
 Establish your connector variable:
-# connector = FinnhubConnector(api_key = 'YOUR_API_KEY')
+## connector = FinnhubConnector(api_key = 'YOUR_API_KEY')
 
 This empty function returns the symbols of all stocks (free tier gives access to only North American ones) in a pandas data frame that could be used as input for other functions.
 # connector.get_north_american_stocks()
