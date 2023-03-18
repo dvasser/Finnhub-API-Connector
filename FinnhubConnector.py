@@ -250,3 +250,4 @@ class FinnhubConnector:
             asyncio.run(fetch_live())
         except KeyboardInterrupt:
             print('####### CONNECTION CLOSED #######')
+ 
