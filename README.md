@@ -5,7 +5,8 @@
 3) In the command line paste -> python FinnhubConnector.py  The program will prompt you to enter your API key. After you enter it, the current quote of 'AAPL' will get printed. This means the program works well on your machine and your API key is valid.
 4) Refer to the text below for available commands. Simply edit the last line of code with whichever command you'd like to run, make sure to follow the instructions carefully. You can stream a stock, print data frames, save them using df.to_excel('stock_df.xlsx') function, etc.
 
-The three last lines of code with the input function are there to establish your connector variable. If you want to define your connector within the .py file simply delete them and add the line of code below instead. Then refer to the instructions how to use all the below commands after defining the connector.\ connector = FinnhubConnector(api_key = 'YOUR_API_KEY')
+The three last lines of code with the input function are there to establish your connector variable. If you want to define your connector within the .py file simply delete them and add the line of code below instead. Then refer to the instructions how to use all the below commands after defining the connector.
+connector = FinnhubConnector(api_key = 'YOUR_API_KEY')
 
 This empty function returns the symbols of all stocks (free tier gives access to only North American ones) in a pandas data frame that could be used as input for other functions.
 connector.get_north_american_stocks()
@@ -24,10 +25,10 @@ Simply put in a stock symbol and get a data frame with earnings surprises of the
 connector.get_earnings_surprises('ADC')
 
 Get the current quote of a given stock with price	change, percent change, high,	low, open, close and time.
-#connector.get_current_quote('AMZN')
+connector.get_current_quote('AMZN')
 
 Get candles of a stock in a time frame. Supported resolution includes 1, 5, 15, 30, 60, D, W, M. Some timeframes might not be available depending on the exchange. Please specify the date in the following format: yyyy-mm-dd . Time is an optional argument set to default: 00:00:00. Make sure that you specify arguments in the following order: symbol, resolution, date from, date to, time from, time to.
-# connector.get_stock_candles('TSLA', '1', '2022-11-10', '2022-12-31')
+connector.get_stock_candles('TSLA', '1', '2022-11-10', '2022-12-31')
 
 Get crypto symbols for a speficic exchange. List of exchanges includes;
 "FXPIG", "KUCOIN", "GEMINI", "BITTREX", "POLONIEX", "HUOBI", "BINANCEUS", "COINBASE", "BITFINEX", "KRAKEN", "HITBTC", "OKEX", "BITMEX", "BINANCE"
