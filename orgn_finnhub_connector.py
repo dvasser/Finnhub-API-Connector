@@ -87,30 +87,26 @@ class FinnhubConnector:
             except:
                 raise ValueError(f'THERE IS NO DATA FOR-> {symbol}')
 
-            # create index names (list of period dates) for the future dfs
-            periods = []
-            for value in fiscal_period.values():
-                for _dict in value:
-                    period = _dict.get('period')
-                    if period not in periods:
-                        periods.append(period)
-
             # drop the two rows from the original df as they will no longer be needed
             past_year.drop([fiscal], inplace=True)
 
             # created dfs out of the given dictionaries
             fiscal_df = pd.DataFrame({key: pd.Series(value) for key, value in fiscal_period.items()})
 
+            #Create datetime list to set index for our data frame
+            periods = []
+            for i in fiscal_period.values():
+                if len(i) == len(fiscal_df):
+                    for d in i:
+                        periods.append(d['period'])
+                    break 
+                        
             # clean up data cells to only leave dict values
             for col in fiscal_df.columns:
                 fiscal_df[col] = fiscal_df[col].apply(lambda x: x.get('v') if type(x) == dict else np.nan)
 
-            # try except block handles the mismatch of the number of actual columns and column names in [periods]
-            # by ignoring the last element in [periods]
-            try:
-                fiscal_df.set_index([periods], inplace=True)
-            except:
-                fiscal_df.set_index([periods[:-1]], inplace=True)
+            #Set index of the df as the earlier defined datetime periods
+            fiscal_df.set_index([periods], inplace=True)
 
             # sort the dfs by ascending dates, rename index and update the empty dict with annual
             # quarterly dfs
