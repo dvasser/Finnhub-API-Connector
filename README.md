@@ -39,5 +39,5 @@ connector.get_crypto_candles('BINANCE:BTCUSDT', '1', '2022-11-10', '2022-12-31',
 
 Stream real time live updates for a given stock or cryptocurrency. Data cleaning was not done here because with websocket connection speed is most important and doing any manipulation with the output dictionaries would take up CPU time. Response Attributes: type: Message type. data: List of trades or price updates. s: Symbol. p: Last price. t: UNIX milliseconds timestamp. v: Volume. c: List of trade conditions. A comprehensive list of trade conditions code can be found here: https://docs.google.com/spreadsheets/d/1PUxiSWPHSODbaTaoL2Vef6DgU-yFtlRGZf19oBb9Hp0/edit#gid=0
 Simply interrupt the kernel when you want to stop running the stream and you'll see a disconnect statement.  
-connector.stream_websocket('AAPL'). 
+connector.stream_websocket('AAPL')  
 connector.stream_websocket('BINANCE:BNBUSDT')
