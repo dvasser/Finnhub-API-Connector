@@ -220,7 +220,7 @@ class FinnhubConnector:
         df.drop(['t'], axis=1, inplace=True)
         return df
 
-    def stream_websocket(self, symbol: str) -> pd.DataFrame:
+    def stream_websocket(self, symbol: str) -> pd.DataFrame: #Note: If you are running this command in the command line you may need to update the Install Certificates.command folder.
 
         # Run the two lines of code below if you are using Jupyter Notebooks and/or get
         # the 'RuntimeError: This event loop is already running' error.
@@ -250,4 +250,10 @@ class FinnhubConnector:
             asyncio.run(fetch_live())
         except KeyboardInterrupt:
             print('####### CONNECTION CLOSED #######')
+            
+#Input the API key when running the file in the command line.
+api_key = input('Paste your Finnhub API key: ')
+connector = FinnhubConnector(api_key = api_key)
+
+print(connector.get_current_quote('AAPL')) #Sample command which will run automatically. Change this line for whichever commands you'd like to run.
  
