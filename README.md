@@ -1,8 +1,8 @@
 ## Instructions on how to use the Finnhub-API-Connector
 
 1) Download and open the repository in a virtual environment (I used PyCharm on MacOS with Python 3.11 interpreter).
-2) Once you navigate to the directory with all the repo files, install requirements.txt
-3) In the command line paste -> python FinnhubConnector.py  The program will prompt you to enter your API key. After you enter it, the current quote of 'AAPL' will get printed. This means the program works well on your machine and your API key is valid.
+2) Once you navigate to the directory with all the repo files, pip install -r requirements.txt
+3) In the command line paste -> python orgn_finnhub_connector.py  The program will prompt you to enter your API key. After you enter it, the current quote of 'AAPL' will get printed. This means the program works well on your machine and your API key is valid.
 4) Refer to the text below for available commands. Simply edit the last line of code with whichever command you'd like to run, make sure to follow the instructions carefully. You can stream a stock, print data frames, save them using df.to_excel('stock_df.xlsx') function, etc.
 
 The three last lines of code with the input function are there to establish your connector variable. If you want to define your connector within the .py file simply delete them and add the line of code below instead. Then refer to the instructions how to use all the below commands after defining the connector.  
